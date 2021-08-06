@@ -1,0 +1,19 @@
+{
+  "name": "excel-template-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/example/example.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "exceljs": "^4.2.1",
+    "handlebars": "^4.7.7"
+  }
+}
