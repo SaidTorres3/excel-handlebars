@@ -19,8 +19,8 @@ And you'll need the data in JSON format:
 }
 ```
 
-Once you have all, use the function renderExcel() in order to compile the file, example:
-```js
+Once you have all, create a new instance of ExcelHandlebars, use the function renderExcel() in the instance in order to compile the file. The first param is the path of the template, the second param is path of the output file and the third param is the data in JSON, example:
+```ts
 import ExcelHandlebars from '../index'
 import fs from 'fs'
 
@@ -37,12 +37,16 @@ templateOutput.renderExcel(
   data
 )
 ```
-The first param is the path of the template, the second param is path of the output file and the third param is the data in JSON. 
+Output:
+| Person | Data |
+| ------------- | ------------- |
+| Name  | Steve  |
+| Age  | 26  |
 
 ## Using helpers
 
 To create a helper use the method registerHelper, it receives the name of the helper and the function that defines what it do.
-```js
+```ts
 // Registering helper 'uppercase', it uppercase text. Usage in handlebar: {{uppercase data.value}}
 templateOutput.registerHelper('uppercase', (text: string|undefined) => {
   if(!text) return
