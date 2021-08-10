@@ -21,16 +21,46 @@ And you'll need the data in JSON format:
 
 Once you have all, use the function renderExcel() in order to compile the file, example:
 ```js
-import renderExcel from '../index'
+import ExcelHandlebars from '../index'
 import fs from 'fs'
 
 const raw_data = fs.readFileSync('example/data.json', {encoding: 'utf-8'})
 const data = JSON.parse(raw_data)
 
-renderExcel(
+// New instance of ExcelHandlebars
+const templateOutput = new ExcelHandlebars()
+
+// Creates the output file.
+templateOutput.renderExcel(
   'example/template.xlsx',
   'example/output.xlsx',
   data
 )
 ```
 The first param is the path of the template, the second param is path of the output file and the third param is the data in JSON. 
+
+## Using helpers
+
+To create a helper use the method registerHelper, it receives the name of the helper and the function that defines what it do.
+```js
+// Registering helper 'uppercase', it uppercase text. Usage in handlebar: {{uppercase data.value}}
+templateOutput.registerHelper('uppercase', (text: string|undefined) => {
+  if(!text) return
+  return text.toUpperCase()
+})
+```
+Usage in template:
+| Person | Data |
+| ------------- | ------------- |
+| Uppercase name  | {{uppercase data.name}}  |
+
+```
+"data": {
+  "name": "karl",
+}
+```
+
+Output:
+| Person | Data |
+| ------------- | ------------- |
+| Uppercase name  | KARL |

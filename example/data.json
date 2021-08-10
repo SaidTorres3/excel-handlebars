@@ -1,9 +1,9 @@
 {
   "data": {
-    "nombre": "Juanito Peréz",
-    "edad": 24,
-    "sexo": "Hombre",
-    "altura": "1.74 metros",
-    "peso": "81 kg"
+    "name": "Karl",
+    "age": 24,
+    "gender": "Man",
+    "height": "1.78 m",
+    "weight": "72 kg"
   }
 }
